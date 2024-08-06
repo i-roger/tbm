@@ -48,7 +48,7 @@ export default function Home() {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="pink"
+                stroke="white"
               >
                 <path
                   strokeLinecap="round"
@@ -63,7 +63,7 @@ export default function Home() {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="pink"
+                stroke="white"
               >
                 <path
                   strokeLinecap="round"
