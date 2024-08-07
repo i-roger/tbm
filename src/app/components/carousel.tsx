@@ -44,6 +44,8 @@ const carouselStyles = {
     scrollSnapType: "x mandatory",
     width: 250,
     height: 300,
+    msOverflowStyle: 'none',
+    scrollbarWidth: 'none',
   },
   box: {
     display: "flex",
