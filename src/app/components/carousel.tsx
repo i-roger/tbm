@@ -29,6 +29,7 @@ const carouselStyles = {
         marginRight: '5px',
         flexShrink: 0,
         scrollSnapAlign: 'start',
+        borderRadius: '30px'
 
     }
 }
