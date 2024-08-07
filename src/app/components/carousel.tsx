@@ -1,6 +1,6 @@
 export default function Carousel() {
   return (
-    <div style={carouselStyles.container} className="">
+    <div style={carouselStyles.container} className="scroll">
       <div>
         <div style={carouselStyles.box} className="p-4">
           IMAGE
@@ -44,8 +44,7 @@ const carouselStyles = {
     scrollSnapType: "x mandatory",
     width: 250,
     height: 300,
-    msOverflowStyle: 'none',
-    scrollbarWidth: 'none',
+    // scrollbarWidth: 'none',
   },
   box: {
     display: "flex",
