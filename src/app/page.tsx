@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Navbar from "./components/navbar"
 import Card from "./components/card"
+import Carousel from "./components/carousel"
 
 export default function Home() {
 
@@ -9,7 +10,9 @@ export default function Home() {
     <>
     <Navbar />
     <main className="flex min-h-screen flex-col items-center">
-      <Card/>
+      <Carousel />
+      <Card />
+      
     </main>
     </>
   );
