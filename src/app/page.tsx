@@ -1,19 +1,16 @@
 "use client"
-import Image from "next/image";
 import Navbar from "./components/navbar"
 import Card from "./components/card"
-import Carousel from "./components/carousel"
+import Swiper from "./components/swiperCarousel/swiper"
 
 export default function Home() {
 
   return (
     <>
     <Navbar />
+    <Swiper />
     <main className="flex min-h-screen flex-col items-center">
-      <Carousel />
       <Card />
-      <Carousel />
-      
     </main>
     </>
   );
