@@ -33,6 +33,9 @@ export default function Home() {
             <a href="/" className="text-white hover:bg-white hover:text-black rounded-lg p-2">
               Contato
             </a>
+            <a href="/login" className="text-white hover:bg-white hover:text-black rounded-lg p-2">
+              Login
+            </a>
           </div>
         </div>
 
