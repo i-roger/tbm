@@ -3,6 +3,11 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+
+import Link from "next/link"
+
 export default function Login() {
   const [buttonDisabled, setButtonDisabled] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -11,7 +16,7 @@ export default function Login() {
     password: "",
   });
 
-  /* Login Validation */
+  /* Validation if is empty */
   useEffect(() => {
     if (
       user.username.length > 0 &&
@@ -23,52 +28,64 @@ export default function Login() {
       setButtonDisabled(true);
     }
   }, [user]);
-  /* Login Validation */
+  /* Validation if is empty */
 
   const router = useRouter();
 
   const onLogin = async () => {
     try {
-      setLoading(true)
+      setLoading(true);
 
       const response = await axios.post("/api/users/login", user);
       console.log("Dados do FRONTEND enviados: ", user);
       console.log("Response :", response.data);
       router.push("/");
-      
-    } catch (error: any) {
-      setLoading(false)
 
-      error = error.message
-      console.log("Seu usuário está errado!", error.message);
+    } catch (error: any) {
+      setLoading(false);
+      error = error.message;
+      console.log(error)
+      /* Clear all inputs, accessing objects inside of setUser state */
+      setUser({username:"", password:""});
 
     } finally {
-      console.log("entrou!!!!!!") 
+
     }
   };
 
   return (
-    <div className="bg-blue-500 flex flex-col items-center justify-center min-h-screen py-2 gap-2">
-      <h1 className="text-3xl">{loading ? "Conectando..." : "Login"}</h1>
-      <hr />
-      <label htmlFor="username">Username</label>
-      <input
-        id="username"
-        type="text"
-        value={user.username}
-        onChange={(e) => setUser({ ...user, username: e.target.value })}
-      />
+    <div className="flex flex-col justify-center max-w-md min-h-screen p-6 mx-auto">
+      <h1 className="text-center text-3xl font-bold">
+        {loading ? "Conectando..." : "Login"}
+      </h1>
+      <div className="flex flex-col gap-4 pt-10">
+        <label className="font-bold" htmlFor="username">
+          Usuário
+        </label>
+        <Input
+          id="username"
+          type="text"
+          value={user.username}
+          onChange={(e) => setUser({ ...user, username: e.target.value })}
+        />
 
-      <label htmlFor="password">Password</label>
-      <input
-        id="password"
-        type="password"
-        value={user.password}
-        onChange={(e) => setUser({ ...user, password: e.target.value })}
-      />
-      <button disabled={buttonDisabled} onClick={onLogin} className="p-2 rounded bg-green-400">
-        {buttonDisabled ? "Complete o Formulário!" : "Entrar"}
-      </button>
+        <label className="font-bold" htmlFor="password">Senha</label>
+        <Input
+          id="password"
+          type="password"
+          value={user.password}
+          onChange={(e) => setUser({ ...user, password: e.target.value })}
+        />
+      </div>
+      <div className="flex justify-evenly pt-4">
+        <Button disabled={buttonDisabled} onClick={onLogin} className="">
+          {buttonDisabled ? "Complete o Formulário!" : "Entrar"}
+        </Button>
+        
+        <Link href="/">
+          <Button className="">Sair</Button>
+        </Link>
+      </div>
     </div>
   );
 }

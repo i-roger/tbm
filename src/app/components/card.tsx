@@ -3,7 +3,7 @@ import React from "react";
 export default function Card() {
   return (
     <div className="m-4 rounded p-4">
-      <h1 className="text-zinc-800 text-3xl py-4">Thrive Beyond Marketing </h1>
+      <h1 className="text-zinc-800 text-3xl py-4">Apresentação</h1>
       <p className="text-zinc-600">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras venenatis
         venenatis leo, nec placerat est porttitor vitae. Aenean a rutrum magna,
