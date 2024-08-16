@@ -6,6 +6,8 @@ import axios from "axios";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
+import { signIn } from "next-auth/react"
+
 import Link from "next/link"
 
 export default function Login() {
@@ -52,6 +54,11 @@ export default function Login() {
 
     }
   };
+
+  signIn("credentials", {
+    ...user,
+    callbackUrl: "/dashboard",
+  });
 
   return (
     <div className="flex flex-col justify-center max-w-md min-h-screen p-6 mx-auto">
