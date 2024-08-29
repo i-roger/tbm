@@ -17,7 +17,7 @@ export async function signInRequest(data: SignInRequestData) {
         user: {
             name: 'Matheus Roger',
             email: 'roger@x.com.br',
-            avatar_url: 'https://github.com/iroger.png'
+            avatar_url: 'https://github.com/i-roger.png'
         }
 
     }
@@ -30,7 +30,7 @@ export async function recoverUserInformation() {
         user: {
             name: 'Matheus Roger',
             email: 'roger@x.com.br',
-            avatar_url: 'https://github.com/iroger.png'
+            avatar_url: 'https://github.com/i-roger.png'
         }
     }
 }

@@ -2,6 +2,7 @@
 import { createContext, useState, useEffect } from "react";
 import { setCookie, parseCookies } from "nookies";
 import Router from "next/router";
+import { api } from "../services/api";
 
 import { recoverUserInformation, signInRequest } from "@/services/auth";
 // Configuração para autenticação em todo app. abstração de _app.tsx
@@ -28,7 +29,7 @@ type AuthContextType = {
 
 export const AuthContext = createContext({} as AuthContextType)
 
-export function AuthProvider({ children }:any) {
+export function AuthProvider({children}: { children: React.ReactNode }) {
 
     const [user, setUser] = useState<User | null>(null)
 
@@ -56,6 +57,9 @@ export function AuthProvider({ children }:any) {
             //è obrigatório informar por quanto tempo esse cookie vai existir :maxAge:
             maxAge: 60 * 60 * 1 // 1 hora isso é igual a ==> 60segundos * 60minutos * 1hora
         })
+
+        api.defaults.headers['Authorization'] = `Bearer ${token}`;
+
         setUser(user)
 
         Router.push('/dashboard');
@@ -63,7 +67,7 @@ export function AuthProvider({ children }:any) {
     
     return (
         <AuthContext.Provider value={{ user, isAuthenticated, signIn }}>
-            {children}
+            {children} {/* QUAL ERRO ESTÀ DANDO AQUI! */}
         </AuthContext.Provider>
     )
 }
